@@ -28,6 +28,9 @@ DB_PASSWORD=laravel_pass
 ・Laravel8.83.8
 ・MySQL8.2.27
 
+##ER図
+![ER図](fruit/fruit.drawio.png)
+
 ## URL
 ・開発環境：http://localhost/admin/contacts
 ・phpMyAdmin : http://localhost:8080/

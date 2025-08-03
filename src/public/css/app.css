@@ -1,0 +1,1215 @@
+/* ==========================================
+   リセット & ベース設定
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Yu Gothic', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'Meiryo', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   ヘッダー
+   ========================================== */
+.main-header {
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.site-title {
+    width: 100%;
+}
+
+.site-title-link {
+    font-family: jsMath-cmti10;
+    color: #FFD700;
+    font-size: 30px;
+    text-decoration: none;
+    font-style: italic;
+    display: block;
+}
+
+/* ==========================================
+   メインコンテンツ
+   ========================================== */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #F8F8F8;
+}
+
+/* ==========================================
+   商品一覧ページ
+   ========================================== */
+.products-index {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.add-product-button {
+    background-color: #FF8C00;
+    color: #4B4B4B;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.add-product-button:hover {
+    background-color: #FF7F00;
+}
+
+/* ==========================================
+   メインコンテンツレイアウト
+   ========================================== */
+.main-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ==========================================
+   検索・フィルターエリア
+   ========================================== */
+.search-controls {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-button {
+    background-color: #FFD700;
+    color: #333;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-button:hover {
+    background-color: #FFC700;
+}
+
+/* 価格順フィルター */
+.sort-controls {
+    margin-top: 18px;
+}
+
+.sort-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.sort-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* 並び替えタグ */
+.sort-tags {
+    margin-top: 18px;
+}
+
+.sort-tag {
+    background-color: #FFD700;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-remove {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================
+   商品グリッド
+   ========================================== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    position: relative;
+    height: 250px;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.no-image {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    color: #4B4B4B;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.product-name {
+    font-size: 16px;
+    color: #4B4B4B;
+    padding: 10px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #4B4B4B;
+    padding: 10px;
+    margin: 0;
+
+    font-weight: 400;
+}
+
+.no-products-message {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    grid-column: 1 / -1;
+    padding: 60px 0;
+}
+
+
+/* ==========================================
+   商品登録フォーム
+   ========================================== */
+/* 商品登録ページのコンテナ */
+.product-register {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 70px 70px;
+    background-color: #F8F8F8;
+}
+
+.product-register .page-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: left;
+}
+
+/* フォームコンテンツ */
+.form-content {
+    background: #F8F8F8;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* ラベルスタイル */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.required-indicator {
+    background-color: #FF6B6B;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+.multiple-note {
+    color: #FF6B6B;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+/* 入力フィールド */
+.product-register .form-input {
+    width: 100%;
+    max-width: 760px;
+    padding: 12px 16px;
+    border: 1px solid #E0DFDE;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #FFD700;
+    
+}
+
+/* 画像アップロードセクション */
+.image-upload-section {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.image-preview {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    color: #999;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.no-image {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+
+/* ファイル入力 */
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.file-label:hover {
+    background-color: #e9ecef;
+}
+
+.filename {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 季節選択 */
+.seasons-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.season-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* カスタムチェックボックス（登録ページ用） */
+.season-option input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.season-option input[type="checkbox"]:checked {
+    background-color: #333;
+    border-color: #333;
+}
+
+.season-option input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.season-label {
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* テキストエリア */
+.form-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 16px;
+    border: 1px solid #E0DFDE;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Hiragino Kaku Gothic Pro;
+    resize: none;
+    background-color: #F8F8F8;
+    transition: border-color 0.3s ease;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+/* 文字数カウンター */
+.character-count {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* エラーメッセージ */
+.error-message {
+    color: #FF6B6B;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* アクションボタン（登録ページ専用） */
+.product-register .action-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.product-register .button {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    min-width: 120px;
+    transition: all 0.3s ease;
+}
+
+.product-register .button-back {
+    background-color: #E0DFDE;
+    color: #333;
+}
+
+.product-register .button-back:hover {
+    background-color: #d0cfce;
+}
+
+.product-register .button-register {
+    background-color: #FFD700;
+    color: #333;
+}
+
+.product-register .button-register:hover {
+    background-color: #FFC700;
+}
+
+/* ==========================================
+   画像アップロードエリア
+   ========================================== */
+.image-upload-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.image-preview {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    color: #999;
+    flex-shrink: 0;
+}
+
+.preview-image,
+.current-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: #ccc;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.file-label:hover {
+    background-color: #bbb;
+}
+
+.filename {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ==========================================
+   季節選択
+   ========================================== */
+.seasons-selection {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.season-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* デフォルトのチェックボックスを非表示 */
+.season-checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* チェック状態のスタイル */
+.season-checkbox input[type="checkbox"]:checked {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* チェックマーク */
+.season-checkbox input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* disabled状態でもスタイルを維持 */
+.season-checkbox input[type="checkbox"]:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.season-label {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* ==========================================
+   文字数カウンター
+   ========================================== */
+.character-count {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   エラーメッセージ
+   ========================================== */
+.error-message {
+    color: #FF6B6B;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* ==========================================
+   アクションボタン
+   ========================================== */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+}
+
+.button-back {
+    background-color: #ccc;
+    color: #333;
+}
+
+.button-back:hover {
+    background-color: #bbb;
+}
+
+.button-register,
+.button-update {
+    background-color: #FFD700;
+    color: #4B4B4B;
+}
+
+.button-register:hover,
+.button-update:hover {
+    background-color: #FFC700;
+}
+
+/* ==========================================
+   商品詳細・更新ページ
+   ========================================== */
+.product-detail {
+    width: 100%;
+    max-width: none;
+    padding: 70px 50px 70px 50px;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.breadcrumb-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-current {
+    color: #666;
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* メインコンテンツレイアウト */
+.detail-content {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 50px;
+    /* 間隔を広げる */
+    margin-bottom: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 商品画像セクション */
+.product-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.no-image {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: #666;
+}
+
+/* 画像アップロード */
+.image-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+.image-upload input[type="file"] {
+    display: none;
+}
+
+.file-select-btn {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* ボタンのサイズ固定 */
+}
+
+.file-select-btn:hover {
+    background-color: #e9ecef;
+}
+
+.filename {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    flex-direction: row;
+}
+
+/* 商品情報セクション */
+.product-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+.display-value {
+    background-color: #f8f9fa;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* 季節選択（チェックボックス表示） */
+.seasons-selection {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.season-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.season-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff;
+}
+
+.season-checkbox input[type="checkbox"]:disabled {
+    opacity: 0.7;
+}
+
+.season-label {
+    color: #333;
+    font-size: 14px;
+}
+
+/* 商品説明セクション（下部独立配置） */
+.product-description-section {
+    margin: 30px 0 20px 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description-box {
+    width: 100%;
+    min-height: 100px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.description {
+    line-height: 1.6;
+    color: #4B4B4B;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    gap: 10px;
+    opacity: 1;    
+}
+
+.button-back {
+    background: #E0DFDE;
+    width: 200;
+    height: 50;
+    gap: 10px;    
+    opacity: 1;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+
+}
+
+.button-back:hover {
+    background-color: #5a6268;
+}
+
+.button-update {
+    background-color: #FFA929;
+    color: #4B4B4B;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+}
+
+.button-update:hover {
+    background-color: #e89520;
+}
+
+/* Figma SVGアイコン用削除ボタンスタイル */
+.delete-form {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+}
+
+.button-delete {
+    background: none;
+    background-color: transparent;
+    color: #FD0707;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.button-delete:hover {
+    background-color: none;
+}
+
+.button-delete:hover svg path {
+    fill: #FD0707;
+    
+}
+
+/* ==========================================
+   商品更新ページのレイアウト
+   ========================================== */
+/* 入力フィールドのスタイル */
+.form-input {
+    background-color: #fff;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* テキストエリアのスタイル */
+.form-textarea {
+    width: 100%;
+    min-height: 100px;
+    background-color: #fff;
+    border: 1px solid #E0DFDE;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.description-box {
+    width: 100%;
+    min-height: 100px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    position: relative;
+}
+
+.description-box .form-textarea {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    width: 100%;
+    min-height: 80px;    
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+/* ==========================================
+   アラート
+   ========================================== */
+.alert {
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* ==========================================
+   ページネーション
+   ========================================== */
+/* ページネーションnavを中央寄せ */
+.pagination-wrapper nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+/* --- ★番号・矢印ボタンだけ装飾 --- */
+.pagination-wrapper .flex.items-center {
+    gap: 8px;
+}
+
+.pagination-wrapper .w-5,
+.pagination-wrapper .h-5,
+.pagination-wrapper svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ボタンの見た目を調整 */
+.pagination-wrapper .flex.items-center>span,
+.pagination-wrapper .flex.items-center>a {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 2px;
+    background: #fff;
+    color: #333;
+}
+
+.pagination-wrapper .flex.items-center>span[aria-current="page"] {
+    background: #FFD600;
+    color: #fff;
+    font-weight: bold;
+}
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 0 0;
+}
+
+.pagination-wrapper nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ページ番号部分のリスト（矢印と番号）だけに余白とセンター寄せ */
+.pagination-wrapper .flex.items-center {
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+    /* 上部に少し余白 */
+}
+
+/* ページリンクの見た目（番号と矢印） */
+.pagination-wrapper .flex.items-center>a,
+.pagination-wrapper .flex.items-center>span {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    color: #8650a8;
+    /* 通常番号色（紫などFigma準拠で） */
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ececec;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    margin: 0 2px;
+    text-decoration: none;
+}
+
+/* アクティブなページ番号 */
+.pagination-wrapper .flex.items-center>span[aria-current="page"] {
+    background: #FFD600;
+    /* 黄色ハイライト */
+    color: #fff;
+    border: 1px solid #FFD600;
+    font-weight: bold;
+}
+
+/* ホバー時（番号） */
+.pagination-wrapper .flex.items-center>a:hover {
+    background: #f5e4ff;
+    /* 薄紫 */
+    color: #5a2f8b;
+    border-color: #c5a5e7;
+}
+
+/* 矢印SVG */
+.pagination-wrapper .flex.items-center svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Disabled矢印（押せない時） */
+.pagination-wrapper .flex.items-center>span[aria-disabled="true"] svg {
+    opacity: 0.3;
+}
+
+
+/* ==========================================
+   レスポンシブデザイン
+   ========================================== */
+/* レスポンシブ対応 */
+@media (max-width: 1200px) {
+    .product-detail {
+        padding: 40px 20px;
+    }
+
+    .detail-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail {
+        padding: 20px 15px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        text-align: center;
+    }
+}

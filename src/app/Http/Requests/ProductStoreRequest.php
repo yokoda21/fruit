@@ -25,7 +25,13 @@ class ProductStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'price' => 'required|integer|min:0|max:10000',
+            'price' => [
+                'required',
+                'numeric',  // integer より緩い
+                'min:0',
+                'max:10000',
+                'regex:/^\d+$/' // 整数のみ許可
+            ],
             'image' => 'required|file|mimes:png,jpeg,jpg|max:2048',
             'description' => 'required|string|max:120',
             'seasons' => 'required|array|min:1'
@@ -42,7 +48,8 @@ class ProductStoreRequest extends FormRequest
         return [
             'name.required' => '商品名を入力してください',
             'price.required' => '値段を入力してください',
-            'price.integer' => '数値で入力してください',
+            'price.numeric' => '数値で入力してください',
+            'price.regex' => '数値で入力してください',
             'price.min' => '0~10000円以内で入力してください',
             'price.max' => '0~10000円以内で入力してください',
             'image.required' => '商品画像を登録してください',

@@ -23,27 +23,22 @@
             <div class="form-group">
                 <label for="price" class="form-label">値段 <span class="required-indicator">必須</span></label>
                 <input type="number" name="price" id="price" class="form-input" placeholder="値段を入力" value="{{ old('price') }}">
-                @error('price')
-                <div class="error-message">{{ $message }}</div>
-                @enderror
+                @foreach($errors->get('price') as $error)
+                <div class="error-message">{{ $error }}</div>
+                @endforeach
             </div>
 
             <!-- 商品画像 -->
             <div class="form-group">
                 <label for="image" class="form-label">商品画像 <span class="required-indicator">必須</span></label>
-                <div class="image-upload-section">
-                    <!-- 画像プレビュー -->
-                    <div class="image-preview" id="imagePreview">
-                        <div class="no-image">画像を選択してください</div>
-                    </div>
 
-                    <!-- ファイル選択 -->
-                    <div class="file-input-wrapper">
-                        <input type="file" name="image" id="image" class="file-input" accept="image/png,image/jpeg,image/jpg" onchange="previewImage(this)">
-                        <label for="image" class="file-label">ファイルを選択</label>
-                        <span class="filename"></span>
-                    </div>
+                <!-- シンプルなファイル選択 -->
+                <div class="simple-file-upload">
+                    <input type="file" name="image" id="image" class="file-input" accept="image/png,image/jpeg,image/jpg" onchange="previewImage(this)">
+                    <label for="image" class="file-label">ファイルを選択</label>
+                    <span class="filename"></span>
                 </div>
+
                 @error('image')
                 <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -73,9 +68,9 @@
                 <div class="character-count">
                     <span id="charCount">0</span>/120文字
                 </div>
-                @error('description')
-                <div class="error-message">{{ $message }}</div>
-                @enderror
+                @foreach($errors->get('description') as $error)
+                <div class="error-message">{{ $error }}</div>
+                @endforeach
             </div>
 
             <!-- アクションボタン -->

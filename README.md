@@ -28,7 +28,7 @@ DB_PASSWORD=laravel_pass
 ・Laravel8.83.8
 ・MySQL8.2.27
 
-##ER図
+## ER図
 ![ER図](fruit.png)
 
 ## URL

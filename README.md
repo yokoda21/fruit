@@ -29,7 +29,7 @@ DB_PASSWORD=laravel_pass
 ・MySQL8.2.27
 
 ##ER図
-![ER図](fruit/fruit.drawio.png)
+![ER図](images/fruit/fruit.png)
 
 ## URL
 ・開発環境：http://localhost/admin/contacts

@@ -12,12 +12,12 @@ git@github.com:yokoda21/fruit.git
 1. docker-compose exec php bash
 2. composer install
 3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成、.envに以下の環境変数を追加
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
+DB_CONNECTION=mysql  
+DB_HOST=mysql  
+DB_PORT=3306  
+DB_DATABASE=laravel_db  
+DB_USERNAME=laravel_user  
+DB_PASSWORD=laravel_pass  
 
 4. php artisan key:generate
 5. php artisan migrate
